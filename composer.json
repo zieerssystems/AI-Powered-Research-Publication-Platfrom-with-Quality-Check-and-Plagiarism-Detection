@@ -1,0 +1,28 @@
+{
+    "name": "anjuscaria/my_publication_site",
+    "autoload": {
+        "psr-4": {
+            "Anjuscaria\\MyPublicationSite\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Anju Scaria",
+            "email": "adzieers@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.9",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi": "^2.6",
+        "tecnickcom/tcpdf": "^6.8",
+        "dompdf/dompdf": "^3.1",
+        "smalot/pdfparser": "^2.12",
+        "phpoffice/phpword": "^1.3",
+        "guzzlehttp/guzzle": "^7.9",
+        "razorpay/razorpay": "^2.9",
+        "mpdf/mpdf": "^8.2",
+        "kreait/firebase-php": "^5.4",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

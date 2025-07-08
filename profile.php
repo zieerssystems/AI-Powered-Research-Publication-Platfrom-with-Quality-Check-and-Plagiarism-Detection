@@ -90,41 +90,32 @@ if (isset($_SESSION['user_id'])) {
     footer p:hover {
       text-decoration: underline;
     }
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .dropdown a {
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      display: block;
-    }
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      background-color: white;
-      min-width: 160px;
-      right: 0;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      z-index: 999;
-      border-radius: 5px;
-    }
-    .dropdown-menu li {
-      display: block;
-    }
-    .dropdown-menu li a {
-      color: #002147;
-      padding: 10px;
-      text-decoration: none;
-      display: block;
-    }
-    .dropdown-menu li a:hover {
-      background-color: #f1f1f1;
-    }
-    .dropdown:hover .dropdown-menu {
-      display: block;
-    }
+   .dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #002147;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+    border-radius: 5px;
+}
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu li a:hover {
+    background-color: #004080;
+}
+    
     .container {
       flex: 1;
       display: flex;
@@ -247,22 +238,32 @@ if (isset($_SESSION['user_id'])) {
         <ul>
           <li><a href="publish.php">Home</a></li>
           <li><a href="services.php">Service</a></li>
-          <?php if ($user): ?>
           <li class="dropdown">
-            <span class="welcome-text"><?php echo htmlspecialchars($user['first_name']); ?> ▼</span>
-            <ul class="dropdown-menu">
-              <li><a href="profile.php">View Profile</a></li>
-              <li><a href="logout.php">Logout</a></li>
-            </ul>
-          </li>
-          <?php else: ?>
-          <li><a class="login-btn" href="login.php">Login</a></li>
-          <?php endif; ?>
+    <a href="#">For Users ▼</a>
+    <ul class="dropdown-menu">
+        <li><a href="for_author.php">For Author</a></li>
+        <li><a href="for_reviewer.php">For Reviewer</a></li>
+        <li><a href="for_editor.php">For Editor</a></li>
+    </ul>
+</li>
+        <?php if ($user): ?>
+  <li class="dropdown">
+    <span class="welcome-text"><?php echo htmlspecialchars($user['first_name']); ?>▼</span>
+    <ul class="dropdown-menu">
+      <li><a href="profile.php">View Profile</a></li>
+      <li><a href="logout.php">Logout</a></li>
+    </ul>
+  </li>
+<?php else: ?>
+  <li><a class="login-btn" href="login.php">Login</a></li>
+<?php endif; ?>
         </ul>
       </nav>
     </div>
   </header>
- <button onclick="history.back()">
+<br>
+<br>
+<button onclick="history.back()">
         ← Back
     </button>
   <!-- Profile Content -->

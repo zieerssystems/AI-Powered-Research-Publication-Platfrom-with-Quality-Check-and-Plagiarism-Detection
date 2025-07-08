@@ -364,7 +364,7 @@ nav ul {
 <li><a href="journal.php">Journal Catalog</a></li>
                 <li><a href="researcher/author/reviewer_login.php">Reviewer Dashboard</a></li>
                 <li class="dropdown">
-    <a href="#">👤 <?php echo htmlspecialchars($_SESSION['first_name']); ?> ▼</a>
+    <a href="#"><?php echo htmlspecialchars($_SESSION['first_name']); ?> ▼</a>
     <ul class="dropdown-menu">
         <li><a href="profile.php">View Profile</a></li>
         <li><a href="logout.php">Logout</a></li>

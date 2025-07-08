@@ -13,7 +13,7 @@ if (isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Zieers</title>
     <style>
-         body {
+     body {
             font-family: 'Poppins', sans-serif;
             background-color: #eef2f3;
             color: #333;
@@ -55,7 +55,6 @@ header {
     z-index: 9999; /* Ensure the header is above other elements */
 }
 
-    
 nav {
     position: absolute;
     right: 20px; /* or 10px or any padding from right */
@@ -84,35 +83,7 @@ nav ul li a:hover {
     background-color: #004080;
 }
 
-.hamburger-menu {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
-}
 
-/* Mobile styles */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background: #002147;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .hamburger-menu {
-        display: block;
-    }
-}
 .privacy-policy-section {
     max-width: 900px;
     margin: 60px auto;
@@ -164,47 +135,31 @@ footer {
         footer p:hover {
             text-decoration: underline;
         }
-  /* Dropdown Styles */
+ /* Dropdown Styles */
 .dropdown {
     position: relative;
-    display: inline-block;
 }
-
-.dropdown a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    display: block;
-}
-
 .dropdown-menu {
     display: none;
     position: absolute;
-    background-color: white;
-    min-width: 160px;
-    right: 0;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 999;
+    background-color: #002147;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
     border-radius: 5px;
 }
-
-.dropdown-menu li {
-    display: block;
-}
-
 .dropdown-menu li a {
-    color: #002147;
-    padding: 10px;
-    text-decoration: none;
     display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
 }
-
-.dropdown-menu li a:hover {
-    background-color: #f1f1f1;
-}
-
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+.dropdown-menu li a:hover {
+    background-color: #004080;
 }
 .site-footer {
   background-color: #002147;
@@ -286,14 +241,26 @@ footer {
 <body>
 <header>
   <div class="header-container">
-    <h1>Zieers</h1>
-    <nav>
+    <div class="logo">
+  <a href="publish.php">
+    <img src="images/logo.png" alt="Zieers Logo" style="height: 50px;">
+  </a>
+</div>
+   <nav>
       <ul>
         <li><a href="publish.php">Home</a></li>
         <li><a href="services.php">Service</a></li>
+        <li class="dropdown">
+    <a href="#">For Users ▼</a>
+    <ul class="dropdown-menu">
+        <li><a href="for_author.php">For Author</a></li>
+        <li><a href="for_reviewer.php">For Reviewer</a></li>
+        <li><a href="for_editor.php">For Editor</a></li>
+    </ul>
+</li>
         <?php if ($user): ?>
   <li class="dropdown">
-    <span class="welcome-text">Welcome, <?php echo htmlspecialchars($user['first_name']); ?>▼</span>
+    <span class="welcome-text"><?php echo htmlspecialchars($user['first_name']); ?>▼</span>
     <ul class="dropdown-menu">
       <li><a href="profile.php">View Profile</a></li>
       <li><a href="logout.php">Logout</a></li>
@@ -307,6 +274,7 @@ footer {
     </nav>
   </div>
 </header>
+
 
     <section class="privacy-policy-section">
         <h2>Privacy Policy</h2>

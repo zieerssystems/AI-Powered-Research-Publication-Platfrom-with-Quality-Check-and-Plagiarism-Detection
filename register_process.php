@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 if ($response['status']) {
     $_SESSION['success_message'] = $response['message'];
-    header("Location: register.php");
+    header("Location: login.php");
     exit();
 } else {
     $_SESSION['error_message'] = $response['message'];
